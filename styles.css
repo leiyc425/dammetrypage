@@ -118,12 +118,46 @@ a {
   line-height: 1;
 }
 
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
 .nav-links {
   display: flex;
   gap: 28px;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(247, 237, 212, 0.7);
+}
+
+.lang button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.lang button[aria-pressed="true"] {
+  background: var(--ink);
+  color: #f6ebd4;
 }
 
 .nav-links a {
@@ -173,11 +207,27 @@ section[id] {
   background: currentColor;
 }
 
+html[lang="en"] {
+  --serif: "Fraunces", "Iowan Old Style", Palatino, serif;
+  --sans: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+html[lang="zh-Hans"] {
+  --serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", "STSong", serif;
+  --sans: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
 h1,
 h2,
 h3 {
   font-family: var(--serif);
   font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+html[lang="zh-Hans"] h1,
+html[lang="zh-Hans"] h2,
+html[lang="zh-Hans"] h3 {
   letter-spacing: 0.01em;
 }
 
@@ -350,6 +400,20 @@ h2 {
 
   .hero-art {
     margin-top: 12px;
+  }
+
+  .nav {
+    height: auto;
+    min-height: var(--nav-h);
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    padding: 10px 0;
+  }
+
+  .nav-end {
+    gap: 14px;
   }
 
   .nav-links {
